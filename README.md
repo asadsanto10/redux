@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+দেখতে দেখতে চলে আসলো সহজ একটি এসাইনমেন্ট। এসাইনমেন্ট শুরু করার আগে আপনি পার্ট বাই পার্ট চিন্তা করেন তাহলে দেখবেন এসাইনমেন্ট অনেক সহজ হয়ে গেছে। এসাইনমেন্টের প্রতিটা ফিচার এর জন্য আলাদা আলাদা নাম্বার আছে।
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## এসাইনমেন্টে কি কি করতে হবে:
 
-## Available Scripts
+১.১) Add counter বাটনে ক্লিক করলে নতুন Counter যোগ হবে।
 
-In the project directory, you can run:
+১.২) প্রতিটি counter আলাদা আলাদা State management করবে।
 
-### `npm start`
+১.৩) প্রতিটি counter এর মধ্যে increment এবং decrement বাটন থাকবে।
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+১.৪) increment এবং decrement বাটন এর value ভ্যারিয়েবলি বাড়াতে হবে। (যেমন কখনো ১ বা কখনো ৫ এই ভাবে)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+১.৫) Reset বাটন এ ক্লিক করলে সব counter রিসেট হয়ে যাবে।
 
-### `npm test`
+১.৬) একদম প্রথম বারে initial state হিসেবে একটা counter থাকবে এবং তার initial value হবে 0
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## কিভাবে সাবমিট করবেন:
 
-### `npm run build`
+সবচেয়ে সহজে বুঝার জন্য [এই ভিডিওটি](https://learnwithsumit.com/courses/think-in-a-redux-way/how-to-submit-assignment) দেখে ফেলুন।
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+এসাইনমেন্টে আপনাকে মাত্র দুইটা জিনিস সাবমিট করতে হবে। সাবমিট একবারই করতে পারবেন তাই ভালো করে দেখে সাবমিট করবেন।
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+২.১) **GitHub private repository link:** অবশ্যই সঠিক গিটহাব রিপোজিটরি লিংক দিতে হবে। ভুলে অন্য কোনো লিংক দিলে আপনি এসাইনমেন্টের মার্ক পাবেন না তাই সাবমিট করার আগে নিউ ট্যাবে লিংক ওপেন করে চেক করে নিবেন সঠিক লিংক জমা দিচ্ছেন কিনা।
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+২.২) **Live site link:** নেটলিফাইতে সাইট হোস্ট করে সাইটের লাইভ লিংক দিতে হবে। ভুলে অন্য কোনো লিংক দিলে আপনি এসাইনমেন্টের মার্ক পাবেন না তাই সাবমিট করার আগে নিউ ট্যাবে লিংক ওপেন করে চেক করে নিবেন সঠিক লিংক জমা দিচ্ছেন কিনা। নেটলিফাইতে কি ভাবে হোস্ট করতে হয় তা আপনি না জানলে [এইখানে ক্লিক](https://learnwithsumit.com/courses/think-in-a-redux-way/how-to-submit-assignment) করে দেখে নিতে পারেন।
 
-### `npm run eject`
+## GitHub private repository কিভাবে তৈরি করবেন:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Github Private repositoty তৈরি করতে [এইখানে ক্লিক করুন](https://classroom.github.com/a/I4-Itdr0) অথবা ব্রাউজারে এই লিংকে **https://classroom.github.com/a/I4-Itdr0** ভিজিট করুন। লিংকে যাওয়ার পরে **Accept this assignment** এ ক্লিক করুন। সর্বোচ্চ ১মিনিট পরে পেইজটি রিলোড দিলে আপনি আপনার রিপোজেটরি লিংক পেয়ে যাবেন। মনে রাখবেন, আপনাকে এই লিংকটি আমাদের প্লাটফর্মে সাবমিট করতে হবে আমাদের কাছে। না বুঝলে উপরে বলা ভিডিও টিউটোরিয়ালটি দেখে নিন।
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## এসাইনমেন্ট মার্কস পলিসি:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+আপনি নির্ধারিত সময়ে এসাইনমেন্ট জমা দিলে এবং সব কিছু সঠিকভাবে করলে সম্পূর্ণ মার্ক পাবেন। এর পরে জমা দিলে আপনার মার্ক কাটা যাবে। অবশ্যই কোর্স চলাকালিন সময়ে এসাইনমেন্ট জমা দিতে হবে। কোর্সের ডিউরেশন শেষ হয়ে গেলে তার পরে আপনি এসাইনমেন্টে জমা দিলে এসাইনমেন্টের মার্ক নাও পেতে পারেন।
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## সাবমিট করার পর কোড চেইঞ্জ:
 
-## Learn More
+আপনি ভেবে নিতে পারেন আমি ওয়েবসাইটে সঠিক সময়ে এসাইনমেন্ট সাবমিট করে নিরবে পরে গিটহাবে কোড পুশ করতে থাকবো। আপনার আপনার গিটহাবের সর্বশেষ কমিট দেখলেই বুঝতে পারবো আপনি কখন কোড আপডেট করেছেন। সে অনুযায়ী আমরা আপনার মার্ক কেটে নিবো। তাই এসাইনমেন্ট এর সময় পার হবার পরে আমরা আশা করবো আপনি চালাকি করে আর কোড পুশ করবেন না আপনার রিপোজেটরিতে।
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## এসাইনমেন্ট মার্কস কবে পাবেন:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+আমরা সর্বোচ্চ ৭ দিনের ভিতরে আপনার এসাইনমেন্টের মার্ক দিয়ে দেওয়ার চেষ্টা করবো। ক্ষেত্র বিশেষে একটু দেরি হতে পারে কারো কারো মার্ক পেতে।
