@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named
 import { DECREMENT, INCREMENT } from './actionsType';
 
 const increment = (value) => {
@@ -12,5 +13,4 @@ const decrement = (value) => {
     payload: value,
   };
 };
-
 export default { increment, decrement };
