@@ -1,17 +1,17 @@
-// eslint-disable-next-line import/named
 import { DECREMENT, INCREMENT } from './actionsType';
 
 const initialState = {
   value: 0,
 };
 
-const counterReducer = (action, state = initialState) => {
+const counterReducer = (state = initialState, action) => {
   switch (action.type) {
     case INCREMENT:
       return {
         ...state,
         value: state.value + 1,
       };
+
     case DECREMENT:
       return {
         ...state,

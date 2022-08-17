@@ -1,13 +1,7 @@
-import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { decrement, increment } from '../redux/counter/actions';
 
-function Counter() {
-  const [counter, setCounter] = useState(0);
-  const incrementCounter = () => {
-    setCounter((prevCounter) => prevCounter + 1);
-  };
-  const decrementCounter = () => {
-    setCounter((prevCounter) => prevCounter - 1);
-  };
+function Counter({ counter, incrementCounter, decrementCounter }) {
   return (
     <div className="p-4 h-auto flex flex-col items-center justify-center space-y-5 bg-white rounded shadow">
       <div className="text-2xl font-semibold">{counter}</div>
@@ -31,4 +25,18 @@ function Counter() {
   );
 }
 
-export default Counter;
+const mapStateToPropos = (state, ownProps) => {
+  console.log(ownProps);
+
+  return {
+    counter: state.value,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    incrementCounter: (value) => dispatch(increment(value)),
+    decrementCounter: (value) => dispatch(decrement(value)),
+  };
+};
+
+export default connect(mapStateToPropos, mapDispatchToProps)(Counter);
