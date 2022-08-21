@@ -1,26 +1,27 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import Carts from './components/Shopping/Cart/Carts';
-import Products from './components/Shopping/Product/Products';
-import store from './redux/store';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Navbar from './components/Navbar';
+import TodoList from './components/TodoList';
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <div className="App">
-        <div className="bg-gray-50 h-full md:h-screen">
-          <div className="grid place-items-center">
-            <h1 className="text-gray-900 font-bold text-3xl p-10 underline decoration-purple-500 decoration-4 underline-offset-8 mb-4">
-              Shopping Cart
-            </h1>
-          </div>
-          <div className="grid grid-cols-12 gap-6">
-            <Products />
-            <Carts />
-          </div>
+    <div className="App">
+      <div className="grid place-items-center bg-blue-100 h-screen px-6 font-sans">
+        <Navbar />
+
+        <div className="w-full max-w-3xl shadow-lg rounded-lg p-6 bg-white">
+          <Header />
+          <hr className="mt-4" />
+
+          <TodoList />
+
+          <hr className="mt-4" />
+
+          <Footer />
         </div>
       </div>
-    </Provider>
+    </div>
   );
 };
 
