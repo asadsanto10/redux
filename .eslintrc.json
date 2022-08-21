@@ -14,6 +14,7 @@
     "jest": true
   },
   "rules": {
+    "react/function-component-definition": 0,
     "default-param-last": 0,
     "react/jsx-props-no-spreading": 0,
     "import/prefer-default-export": 0,

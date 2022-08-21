@@ -1,29 +1,27 @@
+import React from 'react';
 import { Provider } from 'react-redux';
-import DynamicHooksCounter from './components/DynamicHooksCOunter';
-import HooksCounter from './components/HooksCounter';
-import VariableCounter from './components/VariableCounter';
+import Carts from './components/Shopping/Cart/Carts';
+import Products from './components/Shopping/Product/Products';
 import store from './redux/store';
 
-function App() {
+const App = () => {
   return (
     <Provider store={store}>
       <div className="App">
-        <div className="w-screen h-screen p-10 bg-gray-100 text-slate-700">
-          <h1 className="max-w-md mx-auto text-center text-2xl font-bold">
-            Simple Counter Application
-          </h1>
-
-          <div className="max-w-md mx-auto mt-10 space-y-5">
-            {/* <Counter id={12} /> */}
-            <HooksCounter />
-            <DynamicHooksCounter />
-            <VariableCounter />
-            <VariableCounter dynamic />
+        <div className="bg-gray-50 h-full md:h-screen">
+          <div className="grid place-items-center">
+            <h1 className="text-gray-900 font-bold text-3xl p-10 underline decoration-purple-500 decoration-4 underline-offset-8 mb-4">
+              Shopping Cart
+            </h1>
+          </div>
+          <div className="grid grid-cols-12 gap-6">
+            <Products />
+            <Carts />
           </div>
         </div>
       </div>
     </Provider>
   );
-}
+};
 
 export default App;
