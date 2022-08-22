@@ -1,17 +1,48 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React, { useState } from 'react';
 
+import { useDispatch } from 'react-redux';
 import doubleTickImage from '../assets/images/double-tick.png';
 import noteimage from '../assets/images/notes.png';
 import plusimage from '../assets/images/plus.png';
+import { added, allCompleted, clearcompleted } from '../redux/todos/actions';
 
 const Header = () => {
+  const [input, setinput] = useState('');
+  const dispatch = useDispatch();
+
+  const handelInpit = (e) => {
+    setinput(e.target.value);
+  };
+
+  const submitHandeler = (e) => {
+    e.preventDefault();
+    if (input.length > 0) {
+      dispatch(added(input));
+      setinput('');
+    }
+  };
+
+  const handelCompleteAllTask = () => {
+    dispatch(allCompleted());
+  };
+  const clearCompleteAllTask = () => {
+    dispatch(clearcompleted());
+  };
+
   return (
     <div>
-      <form className="flex items-center bg-gray-100 px-4 py-4 rounded-md">
+      <form
+        onSubmit={submitHandeler}
+        className="flex items-center bg-gray-100 px-4 py-4 rounded-md"
+      >
         <img src={noteimage} className="w-6 h-6" alt="Add todo" />
         <input
           type="text"
           placeholder="Type your todo"
+          value={input}
+          onChange={handelInpit}
           className="w-full text-lg px-4 py-1 border-none outline-none bg-gray-100 text-gray-500"
         />
         <button
@@ -23,9 +54,11 @@ const Header = () => {
       <ul className="flex justify-between my-4 text-xs text-gray-500">
         <li className="flex space-x-1 cursor-pointer">
           <img className="w-4 h-4" src={doubleTickImage} alt="Complete" />
-          <span>Complete All Tasks</span>
+          <span onClick={handelCompleteAllTask}>Complete All Tasks</span>
         </li>
-        <li className="cursor-pointer">Clear completed</li>
+        <li onClick={clearCompleteAllTask} className="cursor-pointer">
+          Clear completed
+        </li>
       </ul>
     </div>
   );

@@ -13,6 +13,9 @@
     "es6": true,
     "jest": true
   },
+  "parserOptions": {
+    "ecmaVersion": 2021
+  },
   "rules": {
     "react/function-component-definition": 0,
     "default-param-last": 0,

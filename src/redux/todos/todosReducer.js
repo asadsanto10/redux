@@ -12,6 +12,7 @@ const todosReducer = (state = initialState, action) => {
         ...state,
         {
           id: maxTodoId(state),
+          text: action.payload.addedText,
         },
       ];
 
