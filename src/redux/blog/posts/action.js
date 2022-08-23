@@ -1,8 +1,8 @@
-import { SEARCHPOST } from './actionType';
+// import { SEARCHPOST } from './actionType';
 
-export const searchPost = (text) => {
-  return {
-    type: SEARCHPOST,
-    payload: { text },
-  };
-};
+// export const searchPost = (searchText) => {
+//   return {
+//     type: SEARCHPOST,
+//     payload: { searchText },
+//   };
+// };

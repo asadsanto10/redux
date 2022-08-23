@@ -1,15 +1,23 @@
-import { AUTHORWISE, TAGWISE } from './actionType';
+/* eslint-disable import/named */
+import { AUTHORWISE, TAGWISE, TITLESEARCHPOST } from './actionType';
 
-export const tagwiseChnage = (postTag, changeType) => {
+export const searchPost = (searchText) => {
   return {
-    type: TAGWISE,
-    payload: { postTag, changeType },
+    type: TITLESEARCHPOST,
+    payload: { searchText },
   };
 };
 
-export const authorWiseChnage = (authorName) => {
+export const tagwiseChnage = (categoriesName, changeType) => {
+  return {
+    type: TAGWISE,
+    payload: { categoriesName, changeType },
+  };
+};
+
+export const authorWiseChnage = (authorName, changeType) => {
   return {
     type: AUTHORWISE,
-    payload: { authorName },
+    payload: { authorName, changeType },
   };
 };

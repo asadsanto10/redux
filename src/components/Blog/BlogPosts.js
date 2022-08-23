@@ -1,25 +1,46 @@
+/* eslint-disable no-constant-condition */
+/* eslint-disable no-cond-assign */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import BlogPost from './BlogPost';
 
 const BlogPosts = () => {
   const { posts } = useSelector((state) => state);
+
   const { postFilter } = useSelector((state) => state);
-  console.log(postFilter.categories.length);
+  // console.log(posts);
+  // filter by search
+  const filterBysearch = (post) => {
+    if (postFilter.searchText.length > 0) {
+      return post.title.toLowerCase().match(postFilter.searchText.toLowerCase());
+    }
+    return true;
+  };
 
-  // posts?.categories.find((category) => console.log(category));
-  console.log(posts);
+  // filter by category
+  const filterByCategory = (post) => {
+    if (postFilter.categories.length > 0) {
+      const categoriesTitle = post?.categories?.reduce(
+        (prevCategorie, categorie) => categorie.title,
+        false
+      );
+      return postFilter.categories.includes(categoriesTitle);
+    }
+    return true;
+  };
 
-  // console.log(
-  //   postFilter.categories.includes(
-  //     posts?.map((post) => post?.categories?.find((category) => console.log(category?.title)))
-  //   )
-  // );
+  // filter by author
+  const filterByAuthor = (post) => {
+    if (postFilter.author.length > 0) {
+      return postFilter.author.includes(post?.author);
+    }
+    return true;
+  };
 
   return (
     <section className="relative bg-gray-50 pt-8 pb-20 px-4 sm:px-6 lg:pt-16 lg:pb-16 lg:px-8">
       <div className="absolute inset-0">
-        <div className="bg-white h-1/3 sm:h-2/3" />
+        <div className="bg-white h-full" />
       </div>
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center">
@@ -35,13 +56,9 @@ const BlogPosts = () => {
         <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
           {/* single card */}
           {posts
-            .filter((post) => {
-              if (postFilter.categories.length > 0) {
-                return postFilter.categories.includes('posts');
-              }
-
-              return true;
-            })
+            .filter(filterBysearch)
+            .filter(filterByCategory)
+            .filter(filterByAuthor)
             .map((post) => (
               <BlogPost key={post.id} {...post} />
             ))}

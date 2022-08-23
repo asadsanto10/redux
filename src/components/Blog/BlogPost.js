@@ -1,7 +1,22 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { authorWiseChnage } from '../../redux/blog/filters/action';
 import Category from './Category';
 
-const BlogPost = ({ id, title, categories, bgImage, author, authorImage, date, readTime }) => {
+const BlogPost = ({ title, categories, bgImage, author, authorImage, date, readTime }) => {
+  const { author: fAuthor } = useSelector((state) => state.postFilter);
+
+  const dispatch = useDispatch();
+
+  const handelCAuthor = (authorName) => {
+    if (!fAuthor.includes(authorName)) {
+      dispatch(authorWiseChnage(authorName, 'added'));
+    } else {
+      dispatch(authorWiseChnage(authorName, 'remove'));
+    }
+  };
+
   return (
     <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
       <div className="flex-shrink-0">
@@ -21,10 +36,18 @@ const BlogPost = ({ id, title, categories, bgImage, author, authorImage, date, r
         </div>
         <div className="mt-6 flex items-center">
           <div className="flex-shrink-0">
-            <img className="h-10 w-10 rounded-full" src={authorImage} alt="" />
+            <img
+              onClick={() => handelCAuthor(author)}
+              className="cursor-pointer h-10 w-10 rounded-full"
+              src={authorImage}
+              alt=""
+            />
           </div>
           <div className="ml-3">
-            <p className="cursor-pointer text-sm font-medium text-gray-900 hover:underline">
+            <p
+              onClick={() => handelCAuthor(author)}
+              className="cursor-pointer text-sm font-medium text-gray-900 hover:underline"
+            >
               {author}
             </p>
             <div className="flex space-x-1 text-sm text-gray-500">

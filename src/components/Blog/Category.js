@@ -3,8 +3,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { tagwiseChnage } from '../../redux/blog/filters/action';
 
-const Category = ({ id, title }) => {
-  const { categories, author } = useSelector((state) => state.postFilter);
+const Category = ({ title }) => {
+  const { categories } = useSelector((state) => state.postFilter);
 
   const dispatch = useDispatch();
 

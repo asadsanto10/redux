@@ -1,1 +1,1 @@
-export const SEARCHPOST = 'posts/search';
+// export const SEARCHPOST = 'filters/search';
