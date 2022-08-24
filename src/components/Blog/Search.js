@@ -7,12 +7,28 @@ import { searchPost } from '../../redux/blog/filters/action';
 const Search = () => {
   const dispatch = useDispatch();
 
+  // debounce handler
+  // const debounce = (fn, delay) => {
+  //   console.log(e);
+  //   let timeOut;
+  //   return () => {
+  //     if (timeOut) {
+  //       clearTimeout(timeOut);
+  //     }
+  //     timeOut = setTimeout(() => {
+  //       fn();
+  //     }, delay);
+  //   };
+  // };
+
+  // search handler with debounce
+  let timeOut;
   const handelInpit = (e) => {
     const text = e.target.value;
-
-    // console.log(text);
-
-    dispatch(searchPost(text));
+    clearTimeout(timeOut);
+    timeOut = setTimeout(() => {
+      dispatch(searchPost(text));
+    }, 2000);
   };
 
   return (
@@ -24,12 +40,7 @@ const Search = () => {
         name="search"
         placeholder="Search"
       />
-      <img
-        onClick={handelInpit}
-        className="inline h-6 cursor-pointer"
-        src={searchImage}
-        alt="Search"
-      />
+      <img className="inline h-6 cursor-pointer" src={searchImage} alt="Search" />
     </div>
   );
 };

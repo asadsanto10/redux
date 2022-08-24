@@ -9,10 +9,16 @@ const BlogPosts = () => {
 
   const { postFilter } = useSelector((state) => state);
   // console.log(posts);
+
   // filter by search
   const filterBysearch = (post) => {
     if (postFilter.searchText.length > 0) {
-      return post.title.toLowerCase().match(postFilter.searchText.toLowerCase());
+      // const a = post.title.toLowerCase().match(postFilter.searchText.toLowerCase());
+
+      return (
+        post.title.toLowerCase().includes(postFilter.searchText.toLowerCase()) ||
+        post.author.toLowerCase().includes(postFilter.searchText.toLowerCase())
+      );
     }
     return true;
   };
