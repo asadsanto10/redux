@@ -15,21 +15,10 @@ const delayedAction = (store) => (next) => (action) => {
   return next(action);
 };
 
-const fetchTodo = (store) => (next) => async (action) => {
+const fetchAsyncMiddleware = (store) => (next) => async (action) => {
   // console.log(action.type);
-  if (action.type === 'todo/fetch') {
-    const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=5');
-
-    const todos = await response.json();
-
-    store.dispatch({
-      type: 'todo/loaded',
-      payload: todos,
-    });
-
-    console.log(`Number of updated todos: ${store.getState().todo.length}`);
-
-    return;
+  if (typeof action === 'function') {
+    return action(store.dispatch, store.getState);
   }
 
   return next(action);
@@ -37,5 +26,5 @@ const fetchTodo = (store) => (next) => async (action) => {
 
 module.exports = {
   delayedAction,
-  fetchTodo,
+  fetchAsyncMiddleware,
 };
