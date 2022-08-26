@@ -1,5 +1,21 @@
-import { ADDED, ALLCOMPLETED, CLEARCOMPLETED, COLORSELECTED, DELETED, TOGGLED } from './actionType';
+import {
+  ADDED,
+  ALLCOMPLETED,
+  CLEARCOMPLETED,
+  COLORSELECTED,
+  DELETED,
+  LOADED,
+  TOGGLED,
+  // eslint-disable-next-line prettier/prettier
+  UPDATED
+} from './actionType';
 
+export const loded = (todos) => {
+  return {
+    type: LOADED,
+    payload: { todos },
+  };
+};
 export const added = (addedText) => {
   return {
     type: ADDED,
@@ -25,4 +41,11 @@ export const allCompleted = () => {
 
 export const clearcompleted = () => {
   return { type: CLEARCOMPLETED };
+};
+
+export const updated = (todoId, todoText) => {
+  return {
+    type: UPDATED,
+    payload: { todoId, todoText },
+  };
 };

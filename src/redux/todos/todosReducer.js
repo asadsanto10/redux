@@ -1,4 +1,14 @@
-import { ADDED, ALLCOMPLETED, CLEARCOMPLETED, COLORSELECTED, DELETED, TOGGLED } from './actionType';
+import {
+  ADDED,
+  ALLCOMPLETED,
+  CLEARCOMPLETED,
+  COLORSELECTED,
+  DELETED,
+  LOADED,
+  TOGGLED,
+  // eslint-disable-next-line prettier/prettier
+  UPDATED
+} from './actionType';
 import initialState from './initialState';
 
 const maxTodoId = (todos) => {
@@ -7,6 +17,9 @@ const maxTodoId = (todos) => {
 
 const todosReducer = (state = initialState, action) => {
   switch (action.type) {
+    case LOADED:
+      return action.payload.todos;
+
     case ADDED:
       return [
         ...state,
@@ -50,6 +63,17 @@ const todosReducer = (state = initialState, action) => {
 
     case CLEARCOMPLETED:
       return state.filter((todo) => !todo.completed);
+
+    case UPDATED:
+      return state.map((todo) => {
+        if (todo.id === action.payload.todoId) {
+          return {
+            ...todo,
+            text: action.payload.todoText,
+          };
+        }
+        return todo;
+      });
 
     default:
       return state;

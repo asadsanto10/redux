@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useRef, useState } from 'react';
+
+import { React, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import cancelImage from '../assets/images/cancel.png';
 import editImage from '../assets/images/edit.png';
@@ -8,7 +9,7 @@ import updateColor from '../redux/todos/thunk/updateColor';
 import updateTodo from '../redux/todos/thunk/updateTodo';
 import updateTodoStatus from '../redux/todos/thunk/updateTodoStatus';
 
-const Todo = ({ text, color, completed, id }) => {
+const CompletedTodo = ({ text, color, completed, id }) => {
   const [editInput, setEditInput] = useState('');
   const [isEditable, setIsEditable] = useState(false);
   const [focus, setfocus] = useState(false);
@@ -43,11 +44,6 @@ const Todo = ({ text, color, completed, id }) => {
       console.log('update completed');
     }
   };
-
-  // useEffect(() => {
-  //   inputRef.current.select();
-  // }, [focus]);
-
   return (
     <div className="flex justify-start items-center p-2 hover:bg-gray-100 hover:transition-all space-x-4 border-b border-gray-400/20 last:border-0">
       <div
@@ -132,4 +128,4 @@ const Todo = ({ text, color, completed, id }) => {
   );
 };
 
-export default Todo;
+export default CompletedTodo;
