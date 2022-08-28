@@ -7,18 +7,17 @@ const initialState = {
   count: 0,
 };
 
-const counterSlice = createSlice({
-  name: 'counter',
+const dynamicCounterSlice = createSlice({
+  name: 'dynamicCounter',
   initialState,
   reducers: {
     increment: (state, action) => {
-      state.count++;
+      state.count += action.payload;
     },
     decrement: (state, action) => {
-      state.count--;
+      state.count -= action.payload;
     },
   },
 });
 
-module.exports = counterSlice;
-// module.exports.counterActions = counterSlice.actions;
+module.exports = dynamicCounterSlice;

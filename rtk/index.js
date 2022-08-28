@@ -1,7 +1,8 @@
 const store = require('./app/store');
-const {
-  counterActions: { increment, decrement },
-} = require('./features/counter/counterSlice');
+const { actions: counterActions } = require('./features/counter/counterSlice');
+// const {
+//   counterActions: { increment, decrement },
+// } = require('./features/counter/counterSlice');
 
 console.log('Initial state:', store.getState());
 // subscribe to state changes
@@ -10,8 +11,8 @@ store.subscribe(() => {
 });
 
 // disptach actions
-store.dispatch(increment());
+store.dispatch(counterActions.increment());
 
-store.dispatch(increment());
+store.dispatch(counterActions.increment());
 
-store.dispatch(decrement());
+store.dispatch(counterActions.decrement());
