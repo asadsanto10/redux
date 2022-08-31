@@ -2,6 +2,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { tagRemoved, tagSelected } from '../../features/filter/filterSlice';
+import { chnagePostPageWise } from '../../features/pagination/paginationSlice';
 
 const Tag = ({ title }) => {
   const dispatch = useDispatch();
@@ -13,8 +14,10 @@ const Tag = ({ title }) => {
   const handelSelect = () => {
     if (isSelected) {
       dispatch(tagRemoved(title));
+      dispatch(chnagePostPageWise(1));
     } else {
       dispatch(tagSelected(title));
+      dispatch(chnagePostPageWise(1));
     }
   };
 
