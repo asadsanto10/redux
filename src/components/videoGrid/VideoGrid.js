@@ -7,10 +7,11 @@ import SingleVideo from './SingleVideo';
 const VideoGrid = () => {
   const dispatch = useDispatch();
   const { videos, isLoading, isError, error } = useSelector((state) => state.videos);
+  const { search, tags } = useSelector((state) => state.filter);
 
   useEffect(() => {
-    dispatch(fetchVideos());
-  }, [dispatch]);
+    dispatch(fetchVideos({ tags, search }));
+  }, [dispatch, search, tags]);
   // console.log(videos);
 
   // decide what to render
