@@ -35,9 +35,9 @@ const SingleVideo = ({ id, title, author, avatar, date, duration, views, thumbna
         </div>
 
         <div className="flex flex-row mt-2 gap-2">
-          <Link to={`./videos/${id}`} className="shrink-0">
+          <div onClick={handelAuthor} className="shrink-0 cursor-pointer">
             <img src={avatar} className="rounded-full h-6 w-6" alt={author} />
-          </Link>
+          </div>
 
           <div clas="flex flex-col">
             <Link to={`./videos/${id}`}>
