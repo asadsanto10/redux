@@ -11,7 +11,7 @@ const Search = () => {
   const navigate = useNavigate();
   const handelSubmit = (e) => {
     e.preventDefault();
-    dispatch(searched(input));
+    dispatch(searched(input.toLowerCase()));
 
     // if user is not in homepage
 

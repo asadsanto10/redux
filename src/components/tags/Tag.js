@@ -14,11 +14,10 @@ const Tag = ({ title }) => {
   const handelSelect = () => {
     if (isSelected) {
       dispatch(tagRemoved(title));
-      dispatch(chnagePostPageWise(1));
     } else {
       dispatch(tagSelected(title));
-      dispatch(chnagePostPageWise(1));
     }
+    dispatch(chnagePostPageWise(1));
   };
 
   const style = isSelected

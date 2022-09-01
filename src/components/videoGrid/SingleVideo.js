@@ -1,22 +1,26 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
+import { authorRemoved, authorSelected } from '../../features/filter/filterSlice';
+import { chnagePostPageWise } from '../../features/pagination/paginationSlice';
 
-const SingleVideo = ({
-  id,
-  title,
-  description,
-  author,
-  avatar,
-  date,
-  duration,
-  views,
-  link,
-  thumbnail,
-  tags,
-  likes,
-  unlikes,
-}) => {
+const SingleVideo = ({ id, title, author, avatar, date, duration, views, thumbnail }) => {
+  const dispatch = useDispatch();
+  const { author: selectedAuthor } = useSelector((state) => state.filter);
+  // console.log(selectedTags);
+
+  const isSelected = !!selectedAuthor.includes(author);
+
+  const handelAuthor = () => {
+    if (isSelected) {
+      dispatch(authorRemoved(author));
+    } else {
+      dispatch(authorSelected(author));
+    }
+    dispatch(chnagePostPageWise(1));
+  };
   return (
     <div className="col-span-12 sm:col-span-6 md:col-span-3 duration-300 hover:scale-[1.03]">
       <div className="w-full flex flex-col">
@@ -39,9 +43,12 @@ const SingleVideo = ({
             <Link to={`./videos/${id}`}>
               <p className="text-slate-900 text-sm font-semibold">{title}</p>
             </Link>
-            <Link to={`./videos/${id}`} className="text-gray-400 text-xs mt-2 hover:text-gray-600">
+            <div
+              onClick={handelAuthor}
+              className="text-gray-400 text-xs mt-2 hover:text-gray-600 cursor-pointer"
+            >
               {author}
-            </Link>
+            </div>
             <p className="text-gray-400 text-xs mt-1">
               {views} views . {date}
             </p>

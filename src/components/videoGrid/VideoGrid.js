@@ -7,15 +7,15 @@ import SingleVideo from './SingleVideo';
 const VideoGrid = () => {
   const dispatch = useDispatch();
   const { videos, isLoading, isError, error } = useSelector((state) => state.videos);
-  const { search, tags } = useSelector((state) => state.filter);
+  const { search, tags, author } = useSelector((state) => state.filter);
   const { postPerPage, currentPage } = useSelector((state) => state.pagination);
 
   // const [currentPage, setCurrentPage] = useState(1);
   // const [postsPerPage, setPostsPerPage] = useState(2);
 
   useEffect(() => {
-    dispatch(fetchVideos({ tags, search }));
-  }, [dispatch, search, tags]);
+    dispatch(fetchVideos({ tags, search, author }));
+  }, [dispatch, search, tags, author]);
   // console.log(videos);
 
   // pagination
