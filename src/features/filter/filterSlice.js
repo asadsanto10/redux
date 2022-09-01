@@ -22,8 +22,11 @@ const filterSlice = createSlice({
     searched: (state, action) => {
       state.search = action.payload;
     },
+    clearFilter: (state) => {
+      state.tags = [];
+    },
   },
 });
 
 export default filterSlice;
-export const { tagSelected, tagRemoved, searched } = filterSlice.actions;
+export const { tagSelected, tagRemoved, searched, clearFilter } = filterSlice.actions;

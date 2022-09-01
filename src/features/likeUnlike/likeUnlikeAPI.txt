@@ -1,0 +1,13 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-param-reassign */
+import axiosInstance from '../../utils/axios';
+
+export const updateLikeUnlike = async (id, value) => {
+  const responce = await axiosInstance.patch(`/videos/${id}`, {
+    likes: value + 1,
+  });
+
+  // console.log(responce.data);
+  return responce.data;
+};
+// _limit=4&
