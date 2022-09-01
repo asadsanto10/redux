@@ -7,6 +7,7 @@ import Tag from './Tag';
 
 const Tags = () => {
   const { tags } = useSelector((state) => state.tags);
+  const { tags: filterTags } = useSelector((state) => state.filter);
   const dispatch = useDispatch();
   // console.log(tags);
 
@@ -15,7 +16,7 @@ const Tags = () => {
   }, [dispatch]);
 
   const clearFilterHandler = () => {
-    dispatch(clearFilter());
+    if (filterTags?.length > 0) dispatch(clearFilter());
   };
 
   return tags?.length > 0 ? (
