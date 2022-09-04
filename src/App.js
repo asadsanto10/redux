@@ -1,10 +1,17 @@
 import React from 'react';
+import Balance from './components/Balance';
+import Form from './components/Form';
+import Layout from './components/Layout';
+import Transactions from './components/Transaction/Transactions';
+import './style.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
-    </div>
+    <Layout>
+      <Balance />
+      <Form />
+      <Transactions />
+    </Layout>
   );
 }
 
