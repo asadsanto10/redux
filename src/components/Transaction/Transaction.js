@@ -2,12 +2,12 @@ import React from 'react';
 import deleteSVG from '../../assets/delete.svg';
 import editSVG from '../../assets/edit.svg';
 
-const Transaction = () => {
+const Transaction = ({ name, type, amount }) => {
   return (
-    <li className="transaction income">
-      <p>Earned this month</p>
+    <li className={`transaction ${type}`}>
+      <p>{name}</p>
       <div className="right">
-        <p>৳ 100</p>
+        <p>৳ {amount}</p>
         <button type="button" className="link">
           <img alt={editSVG} className="icon" src={editSVG} />
         </button>
