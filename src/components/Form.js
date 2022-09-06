@@ -1,11 +1,14 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useMatch } from 'react-router-dom';
 import {
   changeTransaction,
   createTransaction,
+  editInActive,
   // eslint-disable-next-line prettier/prettier
-  editInActive
+  editOthersPage
 } from '../fetaures/transaction/transactionSlice';
 
 const Form = () => {
@@ -21,7 +24,7 @@ const Form = () => {
 
   const { editing } = useSelector((state) => state.transactions || {});
   // console.log(editing);
-
+  const match = useMatch('/allTransactions');
   const resetForm = () => {
     setName('');
     setType('');
@@ -44,6 +47,7 @@ const Form = () => {
     seteditMode(false);
     resetForm();
     dispatch(editInActive());
+    match && dispatch(editOthersPage(false));
   };
 
   // listen for edit mode active
@@ -73,6 +77,9 @@ const Form = () => {
     );
     resetForm();
     seteditMode(false);
+    match && dispatch(editOthersPage(false));
+    match && dispatch(editInActive());
+    match && resetForm();
   };
 
   return (

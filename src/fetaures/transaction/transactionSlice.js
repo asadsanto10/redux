@@ -14,6 +14,7 @@ const initialState = {
   isError: false,
   error: '',
   editing: {},
+  editAllTransaction: false,
 };
 
 // async thunk
@@ -51,8 +52,11 @@ const transactionSlice = createSlice({
     editActive: (state, action) => {
       state.editing = action.payload;
     },
-    editInActive: (state, action) => {
+    editInActive: (state) => {
       state.editing = {};
+    },
+    editOthersPage: (state, action) => {
+      state.editAllTransaction = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -119,5 +123,5 @@ const transactionSlice = createSlice({
   },
 });
 
-export const { editActive, editInActive } = transactionSlice.actions;
+export const { editActive, editInActive, editOthersPage } = transactionSlice.actions;
 export default transactionSlice;

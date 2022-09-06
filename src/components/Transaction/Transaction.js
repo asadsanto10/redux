@@ -1,16 +1,25 @@
+/* eslint-disable no-unused-expressions */
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useMatch } from 'react-router-dom';
 import deleteSVG from '../../assets/delete.svg';
 import editSVG from '../../assets/edit.svg';
-import { editActive, removeTransaction } from '../../fetaures/transaction/transactionSlice';
+import {
+  editActive,
+  editOthersPage,
+  // eslint-disable-next-line prettier/prettier
+  removeTransaction
+} from '../../fetaures/transaction/transactionSlice';
 import { thousandSeparator } from '../../utils/thousandSeparator';
 
 const Transaction = ({ name, type, amount, id }) => {
   const dispatch = useDispatch();
+  const match = useMatch('/allTransactions');
 
   // edit
   const handelEdit = () => {
     dispatch(editActive({ name, type, amount, id }));
+    match && dispatch(editOthersPage(true));
   };
 
   // delete

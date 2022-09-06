@@ -3,7 +3,7 @@
     {
       "name": "update",
       "type": "income",
-      "amount": 200,
+      "amount": 25000,
       "id": 1
     },
     {
@@ -25,9 +25,9 @@
       "id": 5
     },
     {
-      "name": "MD. Asaduzzaman Santo",
+      "name": "MD. Asaduzzaman",
       "type": "income",
-      "amount": 100,
+      "amount": 500,
       "id": 6
     },
     {
@@ -37,9 +37,9 @@
       "id": 7
     },
     {
-      "name": "job salary",
+      "name": "asad sa",
       "type": "income",
-      "amount": 20000,
+      "amount": 10000,
       "id": 8
     }
   ]
