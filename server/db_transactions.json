@@ -1,40 +1,46 @@
 {
   "transactions": [
     {
-      "name": "test",
+      "name": "update",
       "type": "income",
-      "amount": 100,
+      "amount": 200,
       "id": 1
     },
     {
-      "name": "test2",
-      "type": "expense",
-      "amount": 200,
+      "name": "test",
+      "type": "income",
+      "amount": 500,
       "id": 2
     },
     {
-      "name": "test3",
-      "type": "income",
-      "amount": 400,
+      "name": "test1",
+      "type": "expense",
+      "amount": 200,
       "id": 3
     },
     {
-      "name": "test",
-      "type": "income",
-      "amount": 100,
-      "id": 4
-    },
-    {
-      "name": "test",
-      "type": "income",
-      "amount": 100,
+      "name": "test58",
+      "type": "expense",
+      "amount": 255,
       "id": 5
     },
     {
-      "name": "test",
-      "type": "expense",
+      "name": "MD. Asaduzzaman Santo",
+      "type": "income",
       "amount": 100,
       "id": 6
+    },
+    {
+      "name": "tv perches",
+      "type": "expense",
+      "amount": 100,
+      "id": 7
+    },
+    {
+      "name": "job salary",
+      "type": "income",
+      "amount": 20000,
+      "id": 8
     }
   ]
 }
