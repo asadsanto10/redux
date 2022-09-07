@@ -1,46 +1,88 @@
 {
   "transactions": [
     {
-      "name": "update",
+      "name": "Bacis salary",
       "type": "income",
       "amount": 25000,
       "id": 1
     },
     {
-      "name": "test",
+      "name": "others",
       "type": "income",
       "amount": 500,
       "id": 2
     },
     {
-      "name": "test1",
+      "name": "RAM purchase",
       "type": "expense",
-      "amount": 200,
+      "amount": 3500,
       "id": 3
     },
     {
-      "name": "test58",
+      "name": "Helth",
       "type": "expense",
-      "amount": 255,
+      "amount": 5000,
+      "id": 4
+    },
+    {
+      "name": "others",
+      "type": "expense",
+      "amount": 1000,
       "id": 5
     },
     {
-      "name": "MD. Asaduzzaman",
-      "type": "income",
-      "amount": 500,
+      "name": "Bazar",
+      "type": "expense",
+      "amount": 5000,
       "id": 6
     },
     {
-      "name": "tv perches",
+      "name": "Basha vara",
       "type": "expense",
-      "amount": 100,
+      "amount": 15000,
       "id": 7
     },
     {
-      "name": "asad sa",
+      "name": "salary2",
       "type": "income",
-      "amount": 10000,
+      "amount": 25000,
       "id": 8
+    },
+    {
+      "name": "Fan purchase",
+      "type": "expense",
+      "amount": 2500,
+      "id": 9
+    },
+    {
+      "name": "Ghura ghuri",
+      "type": "expense",
+      "amount": 1000,
+      "id": 10
+    },
+    {
+      "name": "Others benifit",
+      "type": "income",
+      "amount": 5000,
+      "id": 11
+    },
+    {
+      "name": "Incurence",
+      "type": "income",
+      "amount": 1000,
+      "id": 12
+    },
+    {
+      "name": "Others work",
+      "type": "income",
+      "amount": 15000,
+      "id": 13
+    },
+    {
+      "name": "Work",
+      "type": "income",
+      "amount": 5000,
+      "id": 14
     }
   ]
 }

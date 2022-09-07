@@ -7,12 +7,13 @@ import Transaction from './Transaction';
 const Transactions = () => {
   const { transactions, isLoading, isError } = useSelector((state) => state.transactions);
   const { dataPerPage, currentPage } = useSelector((state) => state.pagination);
+  const { search, type } = useSelector((state) => state.filter);
   // console.log(transactions);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchTransactions());
-  }, [dispatch]);
+    dispatch(fetchTransactions({ search: '', type: '' }));
+  }, [dispatch, search, type]);
 
   // show 5 data per page
   const indexOfLastPost = currentPage * dataPerPage;
