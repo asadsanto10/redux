@@ -10,21 +10,21 @@ export const getTransaction = async (search, type) => {
     queryString += `&type=${type}`;
   }
 
-  const response = await axiosInstance.get(`/Transactions/?${queryString}`);
+  const response = await axiosInstance.get(`/transactions/?${queryString}`);
   return response.data;
 };
 
 export const addTransaction = async (data) => {
-  const response = await axiosInstance.post('/Transactions', data);
+  const response = await axiosInstance.post('/transactions', data);
   return response.data;
 };
 
 export const editTransaction = async (id, data) => {
-  const response = await axiosInstance.put(`/Transactions/${id}`, data);
+  const response = await axiosInstance.put(`/transactions/${id}`, data);
   return response.data;
 };
 
 export const deleteTransaction = async (id) => {
-  const response = await axiosInstance.delete(`/Transactions/${id}`);
+  const response = await axiosInstance.delete(`/transactions/${id}`);
   return response.data;
 };
