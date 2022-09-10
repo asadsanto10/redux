@@ -3,17 +3,20 @@ import React, { useRef, useState } from 'react';
 
 import cancelImage from '../assets/cancel.png';
 import editImage from '../assets/edit.svg';
+import { apiSlice } from '../features/api/apiSlice';
 
 const Todo = ({ text, color, completed, id }) => {
   const [editInput, setEditInput] = useState('');
   const [isEditable, setIsEditable] = useState(false);
   const [focus, setfocus] = useState(false);
   const inputRef = useRef();
-
+  const [updateTodoStatus, { isError, isLoading, isSuccess }] =
+    apiSlice.useUpdateTodoStatusMutation();
   // const dispatch = useDispatch();
 
   const handelStatusChnage = (todoId) => {
     // dispatch(updateTodoStatus(todoId, completed));
+    updateTodoStatus({ todoId, currentState: completed });
   };
 
   const handelColorChange = (todoId, colorr) => {
@@ -39,10 +42,6 @@ const Todo = ({ text, color, completed, id }) => {
       console.log('update completed');
     }
   };
-
-  // useEffect(() => {
-  //   inputRef.current.select();
-  // }, [focus]);
 
   return (
     <div className="flex justify-start items-center p-2 hover:bg-gray-100 hover:transition-all space-x-4 border-b border-gray-400/20 last:border-0">
