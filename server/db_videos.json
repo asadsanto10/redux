@@ -11,11 +11,7 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/6O4s7v28nlw",
       "thumbnail": "https://i3.ytimg.com/vi/6O4s7v28nlw/maxresdefault.jpg",
-      "tags": [
-        "javascript",
-        "react",
-        "tips"
-      ],
+      "tags": ["javascript", "react", "tips"],
       "likes": 91,
       "unlikes": 82
     },
@@ -30,11 +26,7 @@
       "views": "1.9k",
       "link": "https://www.youtube-nocookie.com/embed/e2vYFEahiGE",
       "thumbnail": "https://i3.ytimg.com/vi/e2vYFEahiGE/maxresdefault.jpg",
-      "tags": [
-        "API",
-        "api",
-        "javascript"
-      ],
+      "tags": ["API", "api", "javascript"],
       "likes": 7,
       "unlikes": 6
     },
@@ -49,10 +41,7 @@
       "views": "1.4k",
       "link": "https://www.youtube-nocookie.com/embed/WC-g0JtEIwM",
       "thumbnail": "https://i3.ytimg.com/vi/WC-g0JtEIwM/maxresdefault.jpg",
-      "tags": [
-        "node",
-        "nodejs"
-      ],
+      "tags": ["node", "nodejs"],
       "likes": 10,
       "unlikes": 5
     },
@@ -67,9 +56,7 @@
       "views": "1.8k",
       "link": "https://www.youtube-nocookie.com/embed/J5sCarsKX1s",
       "thumbnail": "https://i3.ytimg.com/vi/J5sCarsKX1s/maxresdefault.jpg",
-      "tags": [
-        "node"
-      ],
+      "tags": ["node"],
       "likes": 6,
       "unlikes": 7
     },
@@ -84,10 +71,7 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/N-U6AVcIPy4",
       "thumbnail": "https://i3.ytimg.com/vi/N-U6AVcIPy4/maxresdefault.jpg",
-      "tags": [
-        "vscode",
-        "tips"
-      ],
+      "tags": ["vscode", "tips"],
       "likes": 34,
       "unlikes": 23
     },
@@ -102,10 +86,7 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/4M7D3O2XX4o",
       "thumbnail": "https://i3.ytimg.com/vi/4M7D3O2XX4o/maxresdefault.jpg",
-      "tags": [
-        "tailwind",
-        "css"
-      ],
+      "tags": ["tailwind", "css"],
       "likes": 4,
       "unlikes": 6
     },
@@ -120,11 +101,7 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/dD9O8DnIBj4",
       "thumbnail": "https://i3.ytimg.com/vi/dD9O8DnIBj4/maxresdefault.jpg",
-      "tags": [
-        "debounce",
-        "javascript",
-        "tips"
-      ],
+      "tags": ["debounce", "javascript", "tips"],
       "likes": 7,
       "unlikes": 4
     },
@@ -139,11 +116,7 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/4tV1Mfi4fMA",
       "thumbnail": "https://i3.ytimg.com/vi/4tV1Mfi4fMA/maxresdefault.jpg",
-      "tags": [
-        "sass",
-        "css",
-        "ui"
-      ],
+      "tags": ["sass", "css", "ui"],
       "likes": 4,
       "unlikes": 4
     },
@@ -158,11 +131,7 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/34tjWL9wi4g",
       "thumbnail": "https://i3.ytimg.com/vi/34tjWL9wi4g/maxresdefault.jpg",
-      "tags": [
-        "react",
-        "router",
-        "javascript"
-      ],
+      "tags": ["react", "router", "javascript"],
       "likes": 5,
       "unlikes": 6
     },
@@ -177,11 +146,7 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/smDa6hoxLKI",
       "thumbnail": "https://i3.ytimg.com/vi/smDa6hoxLKI/maxresdefault.jpg",
-      "tags": [
-        "tailwind",
-        "css",
-        "ui"
-      ],
+      "tags": ["tailwind", "css", "ui"],
       "likes": 3,
       "unlikes": 3
     },
@@ -196,11 +161,7 @@
       "views": "1.4k",
       "link": "https://www.youtube-nocookie.com/embed/1eFczVsGLYk",
       "thumbnail": "https://i3.ytimg.com/vi/1eFczVsGLYk/maxresdefault.jpg",
-      "tags": [
-        "react",
-        "javascript",
-        "react-new"
-      ],
+      "tags": ["react", "javascript", "react-new"],
       "likes": 7,
       "unlikes": 6
     },
@@ -215,9 +176,7 @@
       "views": "1.5k",
       "link": "https://www.youtube-nocookie.com/embed/91HdW69lAVo",
       "thumbnail": "https://i3.ytimg.com/vi/91HdW69lAVo/maxresdefault.jpg",
-      "tags": [
-        "redux"
-      ],
+      "tags": ["redux"],
       "likes": 3,
       "unlikes": 2
     },
@@ -232,10 +191,7 @@
       "views": "1.4k",
       "link": "https://www.youtube-nocookie.com/embed/Ry_r8DCj3hw",
       "thumbnail": "https://i3.ytimg.com/vi/Ry_r8DCj3hw/maxresdefault.jpg",
-      "tags": [
-        "cors",
-        "web"
-      ],
+      "tags": ["cors", "web"],
       "likes": 0,
       "unlikes": 0
     },
@@ -272,6 +228,38 @@
       "duration": "",
       "views": "",
       "id": 16
+    }
+  ],
+  "todos": [
+    {
+      "id": 1,
+      "text": "Learn Vanilla JavaScript",
+      "completed": true,
+      "color": "green"
+    },
+    {
+      "id": 2,
+      "text": "Learn Modern ES6+ JavaScript",
+      "completed": true,
+      "color": "red"
+    },
+    {
+      "id": 3,
+      "text": "Learn React JS",
+      "completed": false,
+      "color": "yellow"
+    },
+    {
+      "text": "Learn Redux Basics",
+      "completed": false,
+      "id": 4,
+      "color": "green"
+    },
+    {
+      "text": "Learn Redux fundamentals test",
+      "completed": false,
+      "id": 5,
+      "color": "red"
     }
   ]
 }
