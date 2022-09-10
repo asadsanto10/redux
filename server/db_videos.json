@@ -238,64 +238,40 @@
       ],
       "likes": 0,
       "unlikes": 0
-    }
-  ],
-  "tags": [
-    {
-      "id": 1,
-      "title": "javascript"
     },
     {
-      "id": 2,
-      "title": "react"
+      "title": "যে ১০ টি ভুল বিগিনার রিয়্যাক্ট ডেভেলপাররা করে থাকেন-2",
+      "author": "asad santo",
+      "description": "আপনারা যারা বিগিনার হিসেবে রিয়্যাক্ট জেস নিয়ে কাজ করা শুরু করেছেন, তারা রিয়্যাক্ট এর বেশ কিছু কনসেপ্ট ঠিক মতো আয়ত্ত না করতে পারার কারণে বিচিত্র কিছু সমস্যার সম্মুখীন হন এবং শেষ পর্যন্ত বুঝতে না পেরে হতাশ হয়ে পড়েন। তাদের জন্যই এই ভিডিওটি। এই ভিডিওতে আমি এমন ১০টি সমস্যার কথা তুলে ধরেছি যেগুলো বিগিনার হিসেবে আপনারা অহরহ সম্মুখীন হবেন। আশা করি ভিডিওটি দেখলে আপনাদের এই সমস্যাগুলো নিয়ে আর কনফিউশন থাকবেনা।",
+      "link": "https://www.youtube-nocookie.com/embed/6O4s7v28nlw",
+      "thumbnail": "https://i3.ytimg.com/vi/6O4s7v28nlw/maxresdefault.jpg",
+      "date": "May 15, 2022",
+      "avatar": "https://avatars.githubusercontent.com/u/40804158?v=4",
+      "duration": "15:00",
+      "views": "2.5k",
+      "id": 14
     },
     {
-      "id": 3,
-      "title": "tips"
+      "title": "test-1",
+      "author": "",
+      "description": "",
+      "link": "",
+      "thumbnail": "",
+      "date": "",
+      "duration": "",
+      "views": "",
+      "id": 15
     },
     {
-      "id": 4,
-      "title": "vscode"
-    },
-    {
-      "id": 5,
-      "title": "tailwind"
-    },
-    {
-      "id": 6,
-      "title": "css"
-    },
-    {
-      "id": 7,
-      "title": "debounce"
-    },
-    {
-      "id": 8,
-      "title": "sass"
-    },
-    {
-      "id": 9,
-      "title": "ui"
-    },
-    {
-      "id": 10,
-      "title": "router"
-    },
-    {
-      "id": 12,
-      "title": "redux"
-    },
-    {
-      "id": 13,
-      "title": "cors"
-    },
-    {
-      "id": 14,
-      "title": "web"
-    },
-    {
-      "id": 15,
-      "title": "node"
+      "title": "test-2",
+      "author": "",
+      "description": "",
+      "link": "",
+      "thumbnail": "",
+      "date": "",
+      "duration": "",
+      "views": "",
+      "id": 16
     }
   ]
 }

@@ -1,22 +1,37 @@
-import { Link } from 'react-router-dom';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import deleteImage from '../../assets/delete.svg';
 import editImage from '../../assets/edit.svg';
+import { apiSlice } from '../../features/api/apiSlice';
+import Error from '../ui/Error';
 
-export default function Description() {
+export default function Description({ id, title, description, date }) {
+  const [deleteVideo, { isError, isLoading, isSuccess }] = apiSlice.useDeleteVideoMutation();
+  const navigate = useNavigate();
+
+  const handelDelete = () => {
+    if (id) deleteVideo(id);
+  };
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate('/');
+    }
+  }, [isSuccess, navigate]);
+
   return (
     <div>
-      <h1 className="text-lg font-semibold tracking-tight text-slate-800">Some video title</h1>
+      <h1 className="text-lg font-semibold tracking-tight text-slate-800">{title}</h1>
       <div className="pb-4 flex items-center space-between border-b gap-4">
-        <h2 className="text-sm leading-[1.7142857] text-slate-600 w-full">
-          Uploaded on 23 Nov 2022
-        </h2>
+        <h2 className="text-sm leading-[1.7142857] text-slate-600 w-full">Uploaded on {date}</h2>
 
         <div className="flex gap-6 w-full justify-end">
           <div className="flex gap-1">
             <div className="shrink-0">
               <img className="w-5 block" src={editImage} alt="Edit" />
             </div>
-            <Link to="/videos/edit/1">
+            <Link to={`/videos/edit/${id}`}>
               <span className="text-sm leading-[1.7142857] text-slate-600 cursor-pointer">
                 Edit
               </span>
@@ -26,16 +41,18 @@ export default function Description() {
             <div className="shrink-0">
               <img className="w-5 block" src={deleteImage} alt="Delete" />
             </div>
-            <div className="text-sm leading-[1.7142857] text-slate-600 cursor-pointer">Delete</div>
+            <div
+              onClick={handelDelete}
+              className="text-sm leading-[1.7142857] text-slate-600 cursor-pointer"
+            >
+              Delete
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="mt-4 text-sm text-[#334155] dark:text-slate-400">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, ex. Facilis excepturi
-        ratione magnam quia maiores architecto eaque fugiat sit quos ex quod quam praesentium optio
-        eligendi, laborum cupiditate. Quidem.
-      </div>
+      <div className="mt-4 text-sm text-[#334155] dark:text-slate-400">{description}</div>
+      {!isLoading && isError && <Error message="There was an error deleting the video" />}
     </div>
   );
 }

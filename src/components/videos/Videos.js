@@ -4,7 +4,7 @@ import VideoLoader from '../ui/loaders/VideoLoader';
 import Video from './Video';
 
 export default function Videos() {
-  const { data, isError, isLoading, isSuccess, error } = apiSlice.useGetVideosQuery();
+  const { data, isError, isLoading } = apiSlice.useGetVideosQuery();
 
   let content = null;
 
