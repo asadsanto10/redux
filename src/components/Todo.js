@@ -10,21 +10,20 @@ const Todo = ({ text, color, completed, id }) => {
   const [isEditable, setIsEditable] = useState(false);
   const [focus, setfocus] = useState(false);
   const inputRef = useRef();
-  const [updateTodoStatus, { isError, isLoading, isSuccess }] =
-    apiSlice.useUpdateTodoStatusMutation();
-  // const dispatch = useDispatch();
+
+  const [updateTodo] = apiSlice.useUpdateTodoMutation();
+  const [deleteTodo] = apiSlice.useDeleteTodoMutation();
 
   const handelStatusChnage = (todoId) => {
-    // dispatch(updateTodoStatus(todoId, completed));
-    updateTodoStatus({ todoId, currentState: completed });
+    updateTodo({ id: todoId, data: { completed: !completed } });
   };
 
-  const handelColorChange = (todoId, colorr) => {
-    // dispatch(updateColor(todoId, colorr));
+  const handelColorChange = (todoId, todoColor) => {
+    updateTodo({ id: todoId, data: { color: todoColor } });
   };
 
   const handelDeleteTodo = (todoId) => {
-    // dispatch(deleteTodos(todoId));
+    deleteTodo(todoId);
   };
 
   // handel editable button click
@@ -37,9 +36,8 @@ const Todo = ({ text, color, completed, id }) => {
   // handel editable input field
   const handelUpdateInput = (e, todoId) => {
     if (e.key === 'Enter') {
-      //   dispatch(updateTodo(todoId, editInput));
-      //   setIsEditable(false);
-      console.log('update completed');
+      updateTodo({ id: todoId, data: { text: editInput } });
+      setIsEditable(false);
     }
   };
 

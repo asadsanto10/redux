@@ -8,7 +8,23 @@ export const apiSlice = createApi({
   tagTypes: ['todos'],
   endpoints: (builder) => ({
     getTodos: builder.query({
-      query: () => '/todos',
+      query: (data) => {
+        let query = '';
+
+        if (data?.status && data.status !== 'all') {
+          query = `?completed=${data.status === 'complete'}`;
+        }
+
+        if (data?.colors?.length > 0) {
+          query = `?${data?.colors?.map((color) => `color_like=${color}`).join('&')}`;
+        }
+
+        if (data?.clearComplete) {
+          query = `?completed=false`;
+        }
+
+        return `/todos/${query}`;
+      },
       keepUnusedDataFor: 120,
       providesTags: ['todos'],
     }),
@@ -20,11 +36,18 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ['todos'],
     }),
-    updateTodoStatus: builder.mutation({
-      query: ({ todoId, currentState }) => ({
-        url: `/todos/${todoId}`,
+    updateTodo: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/todos/${id}`,
         method: 'PATCH',
-        body: { completed: !currentState },
+        body: data,
+      }),
+      invalidatesTags: ['todos'],
+    }),
+    deleteTodo: builder.mutation({
+      query: (todoId) => ({
+        url: `/todos/${todoId}`,
+        method: 'DELETE',
       }),
       invalidatesTags: ['todos'],
     }),

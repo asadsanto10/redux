@@ -278,24 +278,24 @@
     {
       "id": 1,
       "text": "Learn Vanilla JavaScript",
-      "completed": false,
+      "completed": true,
       "color": "green"
     },
     {
       "id": 2,
       "text": "Learn Modern ES6+ JavaScript",
-      "completed": false,
-      "color": "red"
+      "completed": true,
+      "color": "yellow"
     },
     {
       "id": 3,
       "text": "Learn React JS",
       "completed": true,
-      "color": "yellow"
+      "color": "green"
     },
     {
       "text": "Learn Redux Basics",
-      "completed": true,
+      "completed": false,
       "id": 4,
       "color": "green"
     },
@@ -303,17 +303,25 @@
       "text": "Learn Redux fundamentals test",
       "completed": false,
       "id": 5,
-      "color": "red"
+      "color": "yellow"
+    },
+    {
+      "text": "asad",
+      "completed": false,
+      "id": 6,
+      "color": "green"
+    },
+    {
+      "text": "test",
+      "completed": false,
+      "id": 8,
+      "color": "yellow"
     },
     {
       "text": "test todos",
-      "id": 6,
-      "completed": false
-    },
-    {
-      "text": "test todos-2",
-      "id": 7,
-      "completed": false
+      "completed": false,
+      "id": 9,
+      "color": "green"
     }
   ]
 }
