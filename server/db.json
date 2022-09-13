@@ -18,7 +18,7 @@
           "id": 1
         },
         {
-          "email": "akash@learnwithsumit.com",
+          "email": "santo.meridian@gmail.com",
           "name": "Akash Ahmed",
           "id": 2
         }
@@ -36,8 +36,8 @@
           "id": 1
         },
         {
-          "email": "akash@learnwithsumit.com",
-          "name": "Saad Hasan",
+          "email": "santo.meridian@gmail.com",
+          "name": "Asad santo",
           "id": 3
         }
       ],
@@ -55,8 +55,8 @@
         "id": 1
       },
       "receiver": {
-        "email": "akash@learnwithsumit.com",
-        "name": "Akash Ahmed",
+        "email": "santo.meridian@gmail.com",
+        "name": "Asad santo",
         "id": 2
       },
       "message": "Hello",
@@ -66,8 +66,8 @@
       "id": 2,
       "conversationId": 1,
       "sender": {
-        "email": "akash@learnwithsumit.com",
-        "name": "Akash Ahmed",
+        "email": "santo.meridian@gmail.com",
+        "name": "Asad santo",
         "id": 2
       },
       "receiver": {
