@@ -24,10 +24,7 @@ export default function ChatBody() {
   if (!isLoading && !isError && data?.length > 0)
     content = (
       <>
-        <ChatHead
-          avatar="https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg"
-          name="Akash Ahmed"
-        />
+        <ChatHead {...(data[0] || {})} />
         <Messages messages={data} />
         <Options />
       </>
