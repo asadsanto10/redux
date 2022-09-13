@@ -1,6 +1,40 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+
+import { useState } from 'react';
+import { useGetUserQuery } from '../../features/users/usersApi';
+import validateEmailCheck from '../../utils/validEmailCheck';
+import Error from '../ui/Error';
+
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 export default function Modal({ open, control }) {
+  const [to, setTo] = useState('');
+  const [message, setMessage] = useState('');
+  const [userCheckEmail, setUserCheckEmail] = useState(false);
+
+  const { data } = useGetUserQuery(to, { skip: !userCheckEmail });
+
+  const handelSubmit = () => {};
+
+  const deboundeHandler = (fn, delay) => {
+    let timeOut;
+    return (...args) => {
+      clearTimeout(timeOut);
+      timeOut = setTimeout(() => {
+        fn(...args);
+      }, delay);
+    };
+  };
+
+  const doSearch = (e) => {
+    if (validateEmailCheck(e.target.value)) {
+      setUserCheckEmail(true);
+
+      setTo(e.target.value);
+    }
+  };
+
+  const handelEmailSearch = deboundeHandler(doSearch, 500);
+
   return (
     open && (
       <>
@@ -10,17 +44,18 @@ export default function Modal({ open, control }) {
         />
         <div className="rounded w-[400px] lg:w-[600px] space-y-8 bg-white p-10 absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Send message</h2>
-          <form className="mt-8 space-y-6" action="#" method="POST">
-            <input type="hidden" name="remember" value="true" />
+          <form className="mt-8 space-y-6" onSubmit={handelSubmit}>
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
                 <label htmlFor="to" className="sr-only">
                   To
                 </label>
                 <input
+                  // value={to}
+                  onChange={handelEmailSearch}
                   id="to"
                   name="to"
-                  type="to"
+                  type="email"
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
                   placeholder="Send to"
@@ -31,6 +66,8 @@ export default function Modal({ open, control }) {
                   Message
                 </label>
                 <textarea
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   id="message"
                   name="message"
                   type="message"
@@ -50,7 +87,7 @@ export default function Modal({ open, control }) {
               </button>
             </div>
 
-            {/* <Error message="There was an error" /> */}
+            {data?.length === 0 && <Error message="User Does not exist" />}
           </form>
         </div>
       </>

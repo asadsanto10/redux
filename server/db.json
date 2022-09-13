@@ -5,6 +5,12 @@
       "password": "$2a$10$hGnPfmjOjqWO/01bnrKXP.GpIRYEy.Kj.X/QGLO6VhQbTxR1F8Ld2",
       "name": "santo",
       "id": 1
+    },
+    {
+      "email": "asad.santo.20@gmail.com",
+      "password": "$2a$10$YaegkoKO8DlmV0Dy1m5SzO56ylDKvV64Hy4fsuiNdB9dsb8nV4VS6",
+      "name": "santo",
+      "id": 2
     }
   ],
   "conversations": [
