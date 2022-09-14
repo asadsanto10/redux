@@ -11,78 +11,156 @@
       "password": "$2a$10$YaegkoKO8DlmV0Dy1m5SzO56ylDKvV64Hy4fsuiNdB9dsb8nV4VS6",
       "name": "santo",
       "id": 2
+    },
+    {
+      "email": "borsha@gmail.com",
+      "password": "$2a$10$QL0st9WYrtPU6SRoitIOOumwwS1rfmzwfox6VrqXcWc3IW6PSNJua",
+      "name": "borsha",
+      "id": 3
     }
   ],
   "conversations": [
     {
-      "id": 1,
-      "participants": "santo.meridian@gmail.com-sumit@learnwithsumit.com-akash@learnwithsumit.com",
+      "participants": "santo.meridian@gmail.com-borsha@gmail.com",
       "users": [
         {
-          "email": "sumit@learnwithsumit.com",
-          "name": "Sumit Saha",
+          "email": "santo.meridian@gmail.com",
+          "name": "santo",
           "id": 1
         },
         {
-          "email": "santo.meridian@gmail.com",
-          "name": "Akash Ahmed",
-          "id": 2
-        }
-      ],
-      "message": "How are you?",
-      "timestamp": 1661976143678
-    },
-    {
-      "id": 2,
-      "participants": "santo.meridian@gmail.com-sumit@learnwithsumit.com-saad@learnwithsumit.com",
-      "users": [
-        {
-          "email": "sumit@learnwithsumit.com",
-          "name": "Sumit Saha",
-          "id": 1
-        },
-        {
-          "email": "santo.meridian@gmail.com",
-          "name": "Asad santo",
+          "email": "borsha@gmail.com",
+          "password": "$2a$10$QL0st9WYrtPU6SRoitIOOumwwS1rfmzwfox6VrqXcWc3IW6PSNJua",
+          "name": "borsha",
           "id": 3
         }
       ],
-      "message": "How are you?",
-      "timestamp": 1661976143678
+      "message": "hope",
+      "timestamp": 1663154398509,
+      "id": 1
+    },
+    {
+      "participants": "santo.meridian@gmail.com-asad.santo.20@gmail.com",
+      "users": [
+        {
+          "email": "santo.meridian@gmail.com",
+          "name": "santo",
+          "id": 1
+        },
+        {
+          "email": "asad.santo.20@gmail.com",
+          "password": "$2a$10$YaegkoKO8DlmV0Dy1m5SzO56ylDKvV64Hy4fsuiNdB9dsb8nV4VS6",
+          "name": "santo",
+          "id": 2
+        }
+      ],
+      "message": "hey santo",
+      "timestamp": 1663154054470,
+      "id": 2
     }
   ],
   "messages": [
     {
-      "id": 1,
       "conversationId": 1,
       "sender": {
-        "email": "sumit@learnwithsumit.com",
-        "name": "Sumit Saha",
+        "email": "santo.meridian@gmail.com",
+        "name": "santo",
         "id": 1
       },
       "receiver": {
-        "email": "santo.meridian@gmail.com",
-        "name": "Asad santo",
-        "id": 2
+        "email": "borsha@gmail.com",
+        "password": "$2a$10$QL0st9WYrtPU6SRoitIOOumwwS1rfmzwfox6VrqXcWc3IW6PSNJua",
+        "name": "borsha",
+        "id": 3
       },
-      "message": "Hello",
-      "timestamp": 1661976143557
+      "message": "hey borsha",
+      "timestamp": 1663154040142,
+      "id": 1
     },
     {
-      "id": 2,
+      "conversationId": 2,
+      "sender": {
+        "email": "santo.meridian@gmail.com",
+        "name": "santo",
+        "id": 1
+      },
+      "receiver": {
+        "email": "asad.santo.20@gmail.com",
+        "password": "$2a$10$YaegkoKO8DlmV0Dy1m5SzO56ylDKvV64Hy4fsuiNdB9dsb8nV4VS6",
+        "name": "santo",
+        "id": 2
+      },
+      "message": "hey santo",
+      "timestamp": 1663154054470,
+      "id": 2
+    },
+    {
+      "conversationId": 1,
+      "sender": {
+        "email": "borsha@gmail.com",
+        "name": "borsha",
+        "id": 3
+      },
+      "receiver": {
+        "email": "santo.meridian@gmail.com",
+        "password": "$2a$10$hGnPfmjOjqWO/01bnrKXP.GpIRYEy.Kj.X/QGLO6VhQbTxR1F8Ld2",
+        "name": "santo",
+        "id": 1
+      },
+      "message": "hey santo",
+      "timestamp": 1663154080230,
+      "id": 3
+    },
+    {
+      "conversationId": 1,
+      "sender": {
+        "email": "borsha@gmail.com",
+        "name": "borsha",
+        "id": 3
+      },
+      "receiver": {
+        "email": "santo.meridian@gmail.com",
+        "password": "$2a$10$hGnPfmjOjqWO/01bnrKXP.GpIRYEy.Kj.X/QGLO6VhQbTxR1F8Ld2",
+        "name": "santo",
+        "id": 1
+      },
+      "message": "how are you",
+      "timestamp": 1663154103887,
+      "id": 4
+    },
+    {
       "conversationId": 1,
       "sender": {
         "email": "santo.meridian@gmail.com",
-        "name": "Asad santo",
-        "id": 2
-      },
-      "receiver": {
-        "email": "sumit@learnwithsumit.com",
-        "name": "Sumit Saha",
+        "name": "santo",
         "id": 1
       },
-      "message": "How are you?",
-      "timestamp": 1661976143678
+      "receiver": {
+        "email": "borsha@gmail.com",
+        "password": "$2a$10$QL0st9WYrtPU6SRoitIOOumwwS1rfmzwfox6VrqXcWc3IW6PSNJua",
+        "name": "borsha",
+        "id": 3
+      },
+      "message": "I am fine",
+      "timestamp": 1663154125526,
+      "id": 5
+    },
+    {
+      "conversationId": 1,
+      "sender": {
+        "email": "santo.meridian@gmail.com",
+        "name": "santo",
+        "id": 1
+      },
+      "receiver": {
+        "email": "borsha@gmail.com",
+        "password": "$2a$10$QL0st9WYrtPU6SRoitIOOumwwS1rfmzwfox6VrqXcWc3IW6PSNJua",
+        "name": "borsha",
+        "id": 3
+      },
+      "message": "hope",
+      "timestamp": 1663154398509,
+      "id": 6
     }
   ]
 }

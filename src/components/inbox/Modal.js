@@ -1,6 +1,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  conversationsApi,
+  useAddConversationMutation,
+  // eslint-disable-next-line prettier/prettier
+  useEditConversationMutation
+} from '../../features/conversations/conversationsApi';
+
 import { useGetUserQuery } from '../../features/users/usersApi';
 import validateEmailCheck from '../../utils/validEmailCheck';
 import Error from '../ui/Error';
@@ -10,10 +18,33 @@ export default function Modal({ open, control }) {
   const [to, setTo] = useState('');
   const [message, setMessage] = useState('');
   const [userCheckEmail, setUserCheckEmail] = useState(false);
+  const [conversations, setConversations] = useState(undefined);
 
   const { data } = useGetUserQuery(to, { skip: !userCheckEmail });
+  const { user } = useSelector((state) => state.auth) || {};
+  const { email } = user || {};
 
-  const handelSubmit = () => {};
+  const dispatch = useDispatch();
+
+  const [addConversation, { isSuccess: isAddConversationSuccess }] = useAddConversationMutation();
+  const [editConversation, { isSuccess: isEditConversationSuccess }] =
+    useEditConversationMutation();
+
+  useEffect(() => {
+    if (data?.length > 0 && email !== data[0]?.email) {
+      dispatch(
+        conversationsApi.endpoints.getConversation.initiate({
+          userEmail: email,
+          participantEmail: to,
+        })
+      )
+        .unwrap()
+        .then((resData) => {
+          setConversations(resData);
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [data, dispatch, email, to]);
 
   const deboundeHandler = (fn, delay) => {
     let timeOut;
@@ -34,6 +65,42 @@ export default function Modal({ open, control }) {
   };
 
   const handelEmailSearch = deboundeHandler(doSearch, 500);
+
+  // listen conversation add/edit success
+  useEffect(() => {
+    if (isAddConversationSuccess || isEditConversationSuccess) {
+      control();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAddConversationSuccess, isEditConversationSuccess]);
+
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    if (conversations?.length > 0) {
+      // edit conversations
+      editConversation({
+        sender: email,
+        id: conversations[0]?.id,
+        data: {
+          participants: `${email}-${data[0]?.email}`,
+          users: [user, data[0]],
+          message,
+          timestamp: new Date().getTime(),
+        },
+      });
+    } else if (conversations?.length === 0) {
+      // add conversation
+      addConversation({
+        sender: email,
+        data: {
+          participants: `${email}-${data[0]?.email}`,
+          users: [user, data[0]],
+          message,
+          timestamp: new Date().getTime(),
+        },
+      });
+    }
+  };
 
   return (
     open && (
@@ -82,12 +149,18 @@ export default function Modal({ open, control }) {
               <button
                 type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
+                disabled={
+                  conversations === undefined || (data?.length > 0 && email === data[0]?.email)
+                }
               >
                 Send Message
               </button>
             </div>
 
             {data?.length === 0 && <Error message="User Does not exist" />}
+            {data?.length > 0 && email === data[0]?.email && (
+              <Error message="You cannot send messages yourself" />
+            )}
           </form>
         </div>
       </>

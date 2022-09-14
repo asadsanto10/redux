@@ -1,4 +1,5 @@
 import { apiSlice } from '../api/apiSlice';
+import { messagesApi } from '../messages/messagesApi';
 
 export const conversationsApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -11,11 +12,32 @@ export const conversationsApi = apiSlice.injectEndpoints({
         `/conversations/?participants_like=${userEmail}-${participantEmail}&participants_like=${participantEmail}-${userEmail}`,
     }),
     addConversation: builder.mutation({
-      query: (data) => ({
+      query: ({ data }) => ({
         url: `/conversations`,
         method: 'POST',
         body: data,
       }),
+      async onQueryStarted(args, { queryFulfilled, dispatch }) {
+        const conversation = await queryFulfilled;
+        if (conversation?.data?.id) {
+          // silent entry to message table
+
+          const { users } = args.data;
+
+          const senderUser = users.find((user) => user.email === args.sender);
+          const receiverUser = users.find((user) => user.email !== args.sender);
+
+          dispatch(
+            messagesApi.endpoints.addMessage.initiate({
+              conversationId: conversation?.data?.id,
+              sender: senderUser,
+              receiver: receiverUser,
+              message: args.data.message,
+              timestamp: args.data.timestamp,
+            })
+          );
+        }
+      },
     }),
     editConversation: builder.mutation({
       query: ({ id, data }) => ({
@@ -23,6 +45,27 @@ export const conversationsApi = apiSlice.injectEndpoints({
         method: 'PATCH',
         body: data,
       }),
+      async onQueryStarted(args, { queryFulfilled, dispatch }) {
+        const conversation = await queryFulfilled;
+
+        if (conversation?.data?.id) {
+          // silent entry to message table
+          const { users } = args.data;
+
+          const senderUser = users.find((user) => user.email === args.sender);
+          const receiverUser = users.find((user) => user.email !== args.sender);
+
+          dispatch(
+            messagesApi.endpoints.addMessage.initiate({
+              conversationId: conversation?.data?.id,
+              sender: senderUser,
+              receiver: receiverUser,
+              message: args.data.message,
+              timestamp: args.data.timestamp,
+            })
+          );
+        }
+      },
     }),
   }),
 });
