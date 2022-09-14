@@ -26,7 +26,7 @@ export default function ChatBody() {
       <>
         <ChatHead {...(data[0] || {})} />
         <Messages messages={data} />
-        <Options />
+        <Options info={data[0]} />
       </>
     );
 

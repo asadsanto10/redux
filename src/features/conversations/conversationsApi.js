@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { apiSlice } from '../api/apiSlice';
 import { messagesApi } from '../messages/messagesApi';
 
@@ -18,24 +19,36 @@ export const conversationsApi = apiSlice.injectEndpoints({
         body: data,
       }),
       async onQueryStarted(args, { queryFulfilled, dispatch }) {
-        const conversation = await queryFulfilled;
-        if (conversation?.data?.id) {
-          // silent entry to message table
+        // optimistic cache update start
+        const patchResulr1 = dispatch(
+          apiSlice.util.updateQueryData('getConversations', args.sender, (draft) => {
+            draft.push({ ...args.data, id: args.data.id });
+          })
+        );
+        // optimistic cache update end
 
-          const { users } = args.data;
+        try {
+          const conversation = await queryFulfilled;
+          if (conversation?.data?.id) {
+            // silent entry to message table
 
-          const senderUser = users.find((user) => user.email === args.sender);
-          const receiverUser = users.find((user) => user.email !== args.sender);
+            const { users } = args.data;
 
-          dispatch(
-            messagesApi.endpoints.addMessage.initiate({
-              conversationId: conversation?.data?.id,
-              sender: senderUser,
-              receiver: receiverUser,
-              message: args.data.message,
-              timestamp: args.data.timestamp,
-            })
-          );
+            const senderUser = users.find((user) => user.email === args.sender);
+            const receiverUser = users.find((user) => user.email !== args.sender);
+
+            dispatch(
+              messagesApi.endpoints.addMessage.initiate({
+                conversationId: conversation?.data?.id,
+                sender: senderUser,
+                receiver: receiverUser,
+                message: args.data.message,
+                timestamp: args.data.timestamp,
+              })
+            );
+          }
+        } catch (error) {
+          patchResulr1.undo();
         }
       },
     }),
@@ -46,24 +59,38 @@ export const conversationsApi = apiSlice.injectEndpoints({
         body: data,
       }),
       async onQueryStarted(args, { queryFulfilled, dispatch }) {
-        const conversation = await queryFulfilled;
+        // optimistic cache update start
+        const patchResulr1 = dispatch(
+          apiSlice.util.updateQueryData('getConversations', args.sender, (draft) => {
+            const draftConversation = draft.find((c) => c.id == args.id);
+            draftConversation.message = args.data.message;
+            draftConversation.timestamp = args.data.timestamp;
+          })
+        );
+        // optimistic cache update end
 
-        if (conversation?.data?.id) {
-          // silent entry to message table
-          const { users } = args.data;
+        try {
+          const conversation = await queryFulfilled;
 
-          const senderUser = users.find((user) => user.email === args.sender);
-          const receiverUser = users.find((user) => user.email !== args.sender);
+          if (conversation?.data?.id) {
+            // silent entry to message table
+            const { users } = args.data;
 
-          dispatch(
-            messagesApi.endpoints.addMessage.initiate({
-              conversationId: conversation?.data?.id,
-              sender: senderUser,
-              receiver: receiverUser,
-              message: args.data.message,
-              timestamp: args.data.timestamp,
-            })
-          );
+            const senderUser = users.find((user) => user.email === args.sender);
+            const receiverUser = users.find((user) => user.email !== args.sender);
+
+            dispatch(
+              messagesApi.endpoints.addMessage.initiate({
+                conversationId: conversation?.data?.id,
+                sender: senderUser,
+                receiver: receiverUser,
+                message: args.data.message,
+                timestamp: args.data.timestamp,
+              })
+            );
+          }
+        } catch (error) {
+          patchResulr1.undo();
         }
       },
     }),

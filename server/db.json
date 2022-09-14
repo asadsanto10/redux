@@ -21,25 +21,7 @@
   ],
   "conversations": [
     {
-      "participants": "santo.meridian@gmail.com-borsha@gmail.com",
-      "users": [
-        {
-          "email": "santo.meridian@gmail.com",
-          "name": "santo",
-          "id": 1
-        },
-        {
-          "email": "borsha@gmail.com",
-          "password": "$2a$10$QL0st9WYrtPU6SRoitIOOumwwS1rfmzwfox6VrqXcWc3IW6PSNJua",
-          "name": "borsha",
-          "id": 3
-        }
-      ],
-      "message": "hope",
-      "timestamp": 1663154398509,
-      "id": 1
-    },
-    {
+      "id": 14983,
       "participants": "santo.meridian@gmail.com-asad.santo.20@gmail.com",
       "users": [
         {
@@ -54,14 +36,66 @@
           "id": 2
         }
       ],
-      "message": "hey santo",
-      "timestamp": 1663154054470,
-      "id": 2
+      "message": "test-2",
+      "timestamp": 1663181468513
+    },
+    {
+      "id": 31749,
+      "participants": "santo.meridian@gmail.com-borsha@gmail.com",
+      "users": [
+        {
+          "email": "santo.meridian@gmail.com",
+          "name": "santo",
+          "id": 1
+        },
+        {
+          "email": "borsha@gmail.com",
+          "password": "$2a$10$QL0st9WYrtPU6SRoitIOOumwwS1rfmzwfox6VrqXcWc3IW6PSNJua",
+          "name": "borsha",
+          "id": 3
+        }
+      ],
+      "message": "How are you",
+      "timestamp": 1663181483822
     }
   ],
   "messages": [
     {
-      "conversationId": 1,
+      "conversationId": 14983,
+      "sender": {
+        "email": "santo.meridian@gmail.com",
+        "name": "santo",
+        "id": 1
+      },
+      "receiver": {
+        "email": "asad.santo.20@gmail.com",
+        "password": "$2a$10$YaegkoKO8DlmV0Dy1m5SzO56ylDKvV64Hy4fsuiNdB9dsb8nV4VS6",
+        "name": "santo",
+        "id": 2
+      },
+      "message": "test\n",
+      "timestamp": 1663181462914,
+      "id": 1
+    },
+    {
+      "conversationId": 14983,
+      "sender": {
+        "email": "santo.meridian@gmail.com",
+        "name": "santo",
+        "id": 1
+      },
+      "receiver": {
+        "email": "asad.santo.20@gmail.com",
+        "password": "$2a$10$YaegkoKO8DlmV0Dy1m5SzO56ylDKvV64Hy4fsuiNdB9dsb8nV4VS6",
+        "name": "santo",
+        "id": 2
+      },
+      "message": "test-2",
+      "timestamp": 1663181468513,
+      "id": 2
+    },
+    {
+      "conversationId": 31749,
       "sender": {
         "email": "santo.meridian@gmail.com",
         "name": "santo",
@@ -74,93 +108,25 @@
         "id": 3
       },
       "message": "hey borsha",
-      "timestamp": 1663154040142,
-      "id": 1
-    },
-    {
-      "conversationId": 2,
-      "sender": {
-        "email": "santo.meridian@gmail.com",
-        "name": "santo",
-        "id": 1
-      },
-      "receiver": {
-        "email": "asad.santo.20@gmail.com",
-        "password": "$2a$10$YaegkoKO8DlmV0Dy1m5SzO56ylDKvV64Hy4fsuiNdB9dsb8nV4VS6",
-        "name": "santo",
-        "id": 2
-      },
-      "message": "hey santo",
-      "timestamp": 1663154054470,
-      "id": 2
-    },
-    {
-      "conversationId": 1,
-      "sender": {
-        "email": "borsha@gmail.com",
-        "name": "borsha",
-        "id": 3
-      },
-      "receiver": {
-        "email": "santo.meridian@gmail.com",
-        "password": "$2a$10$hGnPfmjOjqWO/01bnrKXP.GpIRYEy.Kj.X/QGLO6VhQbTxR1F8Ld2",
-        "name": "santo",
-        "id": 1
-      },
-      "message": "hey santo",
-      "timestamp": 1663154080230,
+      "timestamp": 1663181478697,
       "id": 3
     },
     {
-      "conversationId": 1,
+      "conversationId": 31749,
       "sender": {
-        "email": "borsha@gmail.com",
-        "name": "borsha",
-        "id": 3
-      },
-      "receiver": {
         "email": "santo.meridian@gmail.com",
-        "password": "$2a$10$hGnPfmjOjqWO/01bnrKXP.GpIRYEy.Kj.X/QGLO6VhQbTxR1F8Ld2",
         "name": "santo",
         "id": 1
       },
-      "message": "how are you",
-      "timestamp": 1663154103887,
+      "receiver": {
+        "email": "borsha@gmail.com",
+        "password": "$2a$10$QL0st9WYrtPU6SRoitIOOumwwS1rfmzwfox6VrqXcWc3IW6PSNJua",
+        "name": "borsha",
+        "id": 3
+      },
+      "message": "How are you",
+      "timestamp": 1663181483822,
       "id": 4
-    },
-    {
-      "conversationId": 1,
-      "sender": {
-        "email": "santo.meridian@gmail.com",
-        "name": "santo",
-        "id": 1
-      },
-      "receiver": {
-        "email": "borsha@gmail.com",
-        "password": "$2a$10$QL0st9WYrtPU6SRoitIOOumwwS1rfmzwfox6VrqXcWc3IW6PSNJua",
-        "name": "borsha",
-        "id": 3
-      },
-      "message": "I am fine",
-      "timestamp": 1663154125526,
-      "id": 5
-    },
-    {
-      "conversationId": 1,
-      "sender": {
-        "email": "santo.meridian@gmail.com",
-        "name": "santo",
-        "id": 1
-      },
-      "receiver": {
-        "email": "borsha@gmail.com",
-        "password": "$2a$10$QL0st9WYrtPU6SRoitIOOumwwS1rfmzwfox6VrqXcWc3IW6PSNJua",
-        "name": "borsha",
-        "id": 3
-      },
-      "message": "hope",
-      "timestamp": 1663154398509,
-      "id": 6
     }
   ]
 }

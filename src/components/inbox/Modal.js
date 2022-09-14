@@ -93,6 +93,7 @@ export default function Modal({ open, control }) {
       addConversation({
         sender: email,
         data: {
+          id: Math.floor(Math.random() * 100000),
           participants: `${email}-${data[0]?.email}`,
           users: [user, data[0]],
           message,
