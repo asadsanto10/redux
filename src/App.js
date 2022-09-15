@@ -10,11 +10,6 @@ import Register from './pages/Register';
 function App() {
   const authCheck = useAutCheck();
 
-  // auto after 1 hour remove auth
-  setTimeout(() => {
-    localStorage.removeItem('auth');
-  }, 3600000);
-
   return !authCheck ? (
     <div>Checking Authentication...</div>
   ) : (

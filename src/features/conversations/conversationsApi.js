@@ -8,6 +8,16 @@ export const conversationsApi = apiSlice.injectEndpoints({
     getConversations: builder.query({
       query: (email) =>
         `/conversations/?participants_like=${email}&_sort=timestamp&_order=desc&_page=1&_limit=${process.env.REACT_APP_CONVERSATIONS_PER_PAGE}`,
+      // responce modify
+
+      transformResponse(apiResponse, meta) {
+        const totalCount = meta.response.headers.get('X-Total-Count');
+        // console.log(totalCount);
+        return {
+          data: apiResponse,
+          totalCount,
+        };
+      },
 
       async onCacheEntryAdded(args, { updateCachedData, cacheDataLoaded, cacheEntryRemoved }) {
         // create socket
@@ -42,6 +52,30 @@ export const conversationsApi = apiSlice.injectEndpoints({
 
         await cacheEntryRemoved;
         socket.close();
+      },
+    }),
+    getMoreConversations: builder.query({
+      query: ({ email, page }) =>
+        `/conversations/?participants_like=${email}&_sort=timestamp&_order=desc&_page=${page}&_limit=${process.env.REACT_APP_CONVERSATIONS_PER_PAGE}`,
+      async onQueryStarted({ email }, { queryFulfilled, dispatch }) {
+        try {
+          const conversations = await queryFulfilled;
+
+          if (conversations?.data?.length > 0) {
+            // update conversation cache  Pessimistic start
+            dispatch(
+              apiSlice.util.updateQueryData('getConversations', email, (draft) => {
+                return {
+                  data: [...draft.data, ...conversations.data],
+                  totalCount: Number(draft.totalCount),
+                };
+              })
+            );
+            // update conversation cache Pessimistic end
+          }
+        } catch (error) {
+          //
+        }
       },
     }),
     getConversation: builder.query({
@@ -98,7 +132,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
         // optimistic cache update start
         const patchResulr1 = dispatch(
           apiSlice.util.updateQueryData('getConversations', args.sender, (draft) => {
-            const draftConversation = draft.find((c) => c.id == args.id);
+            const draftConversation = draft.data.find((c) => c.id == args.id);
             draftConversation.message = args.data.message;
             draftConversation.timestamp = args.data.timestamp;
           })
