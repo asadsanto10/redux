@@ -11,23 +11,19 @@ export const messagesApi = apiSlice.injectEndpoints({
         try {
           await cacheDataLoaded;
           socket.on('message', (data) => {
-            console.log(data);
+            // console.log(data);
 
             updateCachedData((draft) => {
-              console.log(JSON.stringify(draft));
-              // const messages = draft.data.find((c) => c.id == data?.data?.id);
-              console.log(JSON.stringify(draft.messages));
-              // if (conversation?.id) {
-              //   conversation.message = data?.data?.message;
-              //   conversation.timestamp = data?.data?.timestamp;
-              // } else {
-              //   //
-              // }
+              // draft.forEach((c) => {
+              //   console.log(JSON.stringify(c));
+              // });
+
               draft.push(data.data);
             });
           });
         } catch (err) {
-          //
+          await cacheEntryRemoved;
+          socket.close();
         }
 
         await cacheEntryRemoved;
