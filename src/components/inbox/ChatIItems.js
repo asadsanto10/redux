@@ -63,7 +63,7 @@ export default function ChatItems() {
         next={fetchMore}
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
-        height={window.innerHeight - 350}
+        height={window.innerHeight - 129}
       >
         {data?.map(({ message, id, timestamp, users }) => {
           const { name, email } = getPartnerInfo(users, user.email);

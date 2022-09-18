@@ -1,5 +1,5 @@
 /* eslint-disable eqeqeq */
-import io from 'socket.io-client';
+import socket from '../../utils/socket';
 import { apiSlice } from '../api/apiSlice';
 import { messagesApi } from '../messages/messagesApi';
 
@@ -8,8 +8,8 @@ export const conversationsApi = apiSlice.injectEndpoints({
     getConversations: builder.query({
       query: (email) =>
         `/conversations/?participants_like=${email}&_sort=timestamp&_order=desc&_page=1&_limit=${process.env.REACT_APP_CONVERSATIONS_PER_PAGE}`,
-      // responce modify
 
+      // responce modify
       transformResponse(apiResponse, meta) {
         const totalCount = meta.response.headers.get('X-Total-Count');
         // console.log(totalCount);
@@ -20,30 +20,27 @@ export const conversationsApi = apiSlice.injectEndpoints({
       },
 
       async onCacheEntryAdded(args, { updateCachedData, cacheDataLoaded, cacheEntryRemoved }) {
-        // create socket
-        const socket = io('http://localhost:9000', {
-          reconnectionDelay: 1000,
-          reconnection: true,
-          reconnectionAttempts: 10,
-          transports: ['websocket'],
-          agent: false,
-          upgrade: false,
-          rejectUnauthorized: false,
-        });
-
         try {
           await cacheDataLoaded;
           socket.on('conversation', (data) => {
-            // console.log(data);
             updateCachedData((draft) => {
-              const conversation = draft.find((c) => c.id == data?.data?.id);
+              // console.log(JSON.stringify(draft));
+              const conversation = draft.data.find((c) => c.id == data?.data?.id);
 
               if (conversation?.id) {
                 conversation.message = data?.data?.message;
                 conversation.timestamp = data?.data?.timestamp;
               } else {
-                // do nothing
+                //
               }
+              // draft.data.unshift(data.data);
+              // const index = draft.data(data.data);
+              // if (index > -1) {
+              //   // only splice array when item is found
+              //   draft.data.splice(index, 1); // 2nd parameter means remove one item only
+              // }
+              // draft.data.unshift(data.data);
+              // console.log(JSON.stringify(draft.data));
             });
           });
         } catch (err) {
@@ -89,10 +86,12 @@ export const conversationsApi = apiSlice.injectEndpoints({
         body: data,
       }),
       async onQueryStarted(args, { queryFulfilled, dispatch }) {
+        // console.log(args);
+
         // optimistic cache update start
         const patchResulr1 = dispatch(
           apiSlice.util.updateQueryData('getConversations', args.sender, (draft) => {
-            draft.push({ ...args.data, id: args.data.id });
+            draft.data.push({ ...args.data, id: args.data.id });
           })
         );
         // optimistic cache update end

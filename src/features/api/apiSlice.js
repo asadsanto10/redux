@@ -16,7 +16,7 @@ export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: async (args, api, extraOptions) => {
     const result = await baseQuery(args, api, extraOptions);
-    console.log(result);
+    // console.log(result);
     if (result?.error?.status === 401) {
       api.dispatch(userLoggedOut);
       localStorage.removeItem('auth');
