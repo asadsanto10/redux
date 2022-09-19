@@ -42,8 +42,13 @@ export default function Login() {
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
               Sign in to your account
             </h2>
+            <div className="text-center mt-4">
+              <h3>Demo Account-1: santo.meridian@gmail.com</h3>
+              <h3>Demo Account-2: asad.santo.20@gmail.com</h3>
+              <h3>Password: 12345</h3>
+            </div>
           </div>
-          <form onSubmit={handelSubmit} className="mt-8 space-y-6" action="#" method="POST">
+          <form onSubmit={handelSubmit} className="mt-4 space-y-6" action="#" method="POST">
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
                 <label htmlFor="email-address" className="sr-only">
