@@ -23,37 +23,52 @@ export const conversationsApi = apiSlice.injectEndpoints({
         try {
           await cacheDataLoaded;
           socket.on('conversation', (data) => {
+            // updateCachedData((draft) => {
+            //   // console.log(data);
+            //   // console.log(JSON.stringify(draft));
+            //   const conversation = draft.data.find((c) => c.id == data?.data?.id);
+
+            //   if (conversation?.id) {
+            //     conversation.message = data?.data?.message;
+            //     conversation.timestamp = data?.data?.timestamp;
+            //   } else {
+            //     //
+            //   }
+            //   // draft.data.unshift(data.data);
+            //   // const index = draft.data(data.data);
+            //   // if (index > -1) {
+            //   //   // only splice array when item is found
+            //   //   console.log(draft.data.splice(index, 1)); // 2nd parameter means remove one item only
+            //   // }
+
             updateCachedData((draft) => {
-              // console.log(data);
               // console.log(JSON.stringify(draft));
-              const conversation = draft.data.find((c) => c.id == data?.data?.id);
-
-              if (conversation?.id) {
-                conversation.message = data?.data?.message;
-                conversation.timestamp = data?.data?.timestamp;
-              } else {
-                //
+              // console.log(data?.data);
+              if (data.type !== 'conversationAdd') {
+                const conversation = draft.data.find((c) => c.id == data?.data?.id);
+                if (conversation?.id) {
+                  conversation.message = data?.data?.message;
+                  conversation.timestamp = data?.data?.timestamp;
+                }
+                return;
               }
-              // draft.data.unshift(data.data);
-              // const index = draft.data(data.data);
-              // if (index > -1) {
-              //   // only splice array when item is found
-              //   console.log(draft.data.splice(index, 1)); // 2nd parameter means remove one item only
-              // }
 
-              // draft.data.filter((d) => {
-              //   console.log(JSON.stringify(d.timestamp));
-              //   return d;
-              // });
-              // draft = [];
-
-              // draft.data.unshift(data.data);
-              // // console.log(JSON.stringify(draft.data));
-              // draft.data.filter((d) => {
-              //   console.log(JSON.stringify(d.timestamp));
-              //   return d;
-              // });
+              draft.data.unshift(data.data);
             });
+
+            //   // draft.data.filter((d) => {
+            //   //   console.log(JSON.stringify(d.timestamp));
+            //   //   return d;
+            //   // });
+            //   // draft = [];
+
+            //   draft.data.unshift(data.data);
+            //   // // console.log(JSON.stringify(draft.data));
+            //   // draft.data.filter((d) => {
+            //   //   console.log(JSON.stringify(d.timestamp));
+            //   //   return d;
+            //   // });
+            // });
           });
         } catch (err) {
           //
@@ -143,7 +158,6 @@ export const conversationsApi = apiSlice.injectEndpoints({
         // optimistic cache update start
         const pathResult = dispatch(
           apiSlice.util.updateQueryData('getConversations', arg.sender, (draft) => {
-            // eslint-disable-next-line eqeqeq
             const draftConversation = draft.data.find((c) => c.id == arg.id);
             draftConversation.message = arg.data.message;
             draftConversation.timestamp = arg.data.timestamp;

@@ -19,6 +19,7 @@ router.render = (req, res) => {
     // emit socket event
     io.emit('conversation', {
       data: res.locals.data,
+      type: method === 'POST' ? 'conversationAdd' : 'conversationEdit',
     });
   }
   if (path.includes('/messages') && (method === 'POST' || method === 'PATCH')) {
